@@ -103,14 +103,14 @@ int main(void)
   while (1)
   {
 	  if (bomb_defused){
-		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
+		  // led para verde
 		  break;
 	  }
 
-	  if (time_remaining <= 0)
+	  if (time_remaining <= 0){
+		  // explosão
 		  break;
-
-
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -237,12 +237,12 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-static int applyPenalty(){
+static void applyPenalty(){
 	penalty_multiplier += 0.1;
 	time_remaining -= base_penalty * penalty_multiplier;
 }
 
-static int void checkCodeInput(int code){
+static void checkCodeInput(int code){
 	if (code == correct_code)
 		bomb_defused = 1;
 	else
@@ -251,7 +251,7 @@ static int void checkCodeInput(int code){
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	if (GPIO_Pin == B1_Pin){
-		checkCodeInput();
+		checkCodeInput(); // falta saber como ler o código
 	}
 }
 /* USER CODE END 4 */
