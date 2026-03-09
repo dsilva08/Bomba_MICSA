@@ -1,0 +1,6 @@
+../Core/Src/led.c:20:6:RGB_init	1
+../Core/Src/led.c:27:6:RGB_setColor	1
+../Core/Src/led.c:34:6:RGB_setGreen	1
+../Core/Src/led.c:39:6:RGB_setRed	1
+../Core/Src/led.c:44:6:RGB_defuseBlink	5
+../Core/Src/led.c:71:6:RGB_off	1
