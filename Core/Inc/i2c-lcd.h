@@ -20,5 +20,6 @@ void lcd_clear();
 void lcd_display_codigo();
 void lcd_display_final_message();
 void lcd_display_tempo(int time_remaining);
+void lcd_display_invalid_key_message();
 
 #endif /* I2C_LCD_H_ */

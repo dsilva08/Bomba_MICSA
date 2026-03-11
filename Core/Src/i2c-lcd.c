@@ -100,3 +100,9 @@ void lcd_display_tempo(int time_remaining){
     lcd_put_cur(1, 0);
     lcd_send_string(buf);
 }
+
+void lcd_display_invalid_key_message(){
+	lcd_put_cur(1,0);
+	lcd_send_string("TECLA INVALIDA");
+	HAL_Delay(1000);
+}

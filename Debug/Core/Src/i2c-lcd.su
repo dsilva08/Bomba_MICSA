@@ -8,3 +8,4 @@
 ../Core/Src/i2c-lcd.c:81:6:lcd_display_codigo	8	static
 ../Core/Src/i2c-lcd.c:87:6:lcd_display_final_message	16	static
 ../Core/Src/i2c-lcd.c:95:6:lcd_display_tempo	40	static
+../Core/Src/i2c-lcd.c:104:6:lcd_display_invalid_key_message	8	static

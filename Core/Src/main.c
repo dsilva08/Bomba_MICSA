@@ -208,6 +208,13 @@ void checkCodeInput(){
 }
 
 void handle_keypress(char tecla){
+	if (time_remaining > 0 || !bomb_defused){
+		if (tecla == '#' || tecla == '*'){
+			lcd_display_invalid_key_message();
+			return;
+		}
+	}
+
     if (key_count < CODE_LENGTH) {
         input_code[key_count] = tecla;
         lcd_put_cur(0, 7+key_count); // 7 é o comprimento de "CODIGO:"
