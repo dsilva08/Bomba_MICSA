@@ -60,7 +60,7 @@
 int bomb_defused = 0;
 char* correct_code;
 volatile int time_remaining = 120; // segundos
-int base_penalty = 2; // segundos
+int base_penalty = 5; // segundos
 double penalty_multiplier = 1.0;
 volatile int last_error;
 
@@ -133,7 +133,6 @@ char* generate_code(){
 }
 
 void applyPenalty(){
-	penalty_multiplier += 0.5;
 	int penalty = base_penalty * penalty_multiplier;
 
 	if (time_remaining > penalty){
@@ -142,6 +141,7 @@ void applyPenalty(){
 		time_remaining = 0;
 	}
 
+	penalty_multiplier += 0.5;
 }
 
 void giveHint(){
@@ -159,8 +159,11 @@ void reset_game(){
 	time_remaining = 120;
 	penalty_multiplier = 1.0;
 
-	if (correct_code)
+	if (correct_code){
 		free(correct_code);
+		correct_code = NULL;
+	}
+
 
 	correct_code = generate_code();
 
@@ -190,6 +193,7 @@ void endgame_routine(){
 	}
 
 	free(correct_code);
+	correct_code = NULL;
 	lcd_display_final_message(msg);
     wait_for_restart();
     reset_game();
